@@ -31,7 +31,7 @@ export const SHOP_CATEGORIES: CategoryTile[] = [
 
 export const STORE_PROMISES = [
   { title: "Free shipping over ₹999", description: "Standard delivery across India in 2–6 days", icon: "Truck" },
-  { title: "15-day easy exchanges", description: "Wrong size? Swap it free, no questions", icon: "RefreshCcw" },
+  { title: "7-day returns & exchanges", description: "Request within 7 days; see policy for conditions and fees", icon: "RefreshCcw" },
   { title: "Cash on delivery", description: "Pay when it reaches your door", icon: "Banknote" },
   { title: "Secure payments", description: "UPI, cards and netbanking via Razorpay & Cashfree", icon: "ShieldCheck" },
 ] as const;

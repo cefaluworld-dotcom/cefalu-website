@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps<{ category: string 
     title: `${match.name}`,
     description:
       match.description ??
-      `Shop ${match.name.toLowerCase()} at Cefalu — measured size charts, free shipping above ₹999 and free 15-day exchanges.`,
+      `Shop ${match.name.toLowerCase()} at Cefalu — measured size charts, free shipping above ₹999 and 7-day returns and exchanges.`,
     pathname: ROUTES.category(category),
   });
 }

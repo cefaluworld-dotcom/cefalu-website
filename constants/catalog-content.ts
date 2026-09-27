@@ -315,7 +315,7 @@ export const DEFAULT_ENRICHMENT: ProductEnrichment = E({
   gender: "unisex",
   subcategory: "Clothing",
   shortDescription: "Everyday clothing in honest fabrics, cut to fit.",
-  highlights: ["Quality-checked before dispatch", "Easy 15-day exchanges"],
+  highlights: ["Quality-checked before dispatch", "7-day returns & exchanges"],
   fabric: "See product label",
   fabricFamily: "Cotton",
   fit: "Regular fit",

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check, MessageCircle, RefreshCcw } from "lucide-react";
 import type { PageProps, GalleryMedia } from "@/types";
-import { EXCHANGE_WINDOW_DAYS, RETURN_WINDOW_DAYS, ROUTES } from "@/constants";
+import { EXCHANGE_WINDOW_DAYS, ROUTES } from "@/constants";
 import { siteConfig } from "@/config/site";
 import { breadcrumbJsonLd, constructMetadata } from "@/lib/seo";
 import {
@@ -269,8 +269,7 @@ export default async function ProductPage({ params }: PageProps<{ handle: string
               <AccordionItem value="exchanges">
                 <AccordionTrigger>Exchanges &amp; returns</AccordionTrigger>
                 <AccordionContent className="text-sm leading-relaxed">
-                  Exchange any unworn item with tags attached within {EXCHANGE_WINDOW_DAYS} days of delivery — we
-                  collect it and send the new size free. Returns for a refund are accepted within {RETURN_WINDOW_DAYS} days.{" "}
+                  Request a return or exchange within {EXCHANGE_WINDOW_DAYS} days of delivery, subject to the policy. A ₹100 reverse pickup charge applies to returns per order and to COD exchanges.{" "}
                   <Link href={ROUTES.refunds} className="link-underline font-medium text-primary">
                     Full policy
                   </Link>
@@ -297,10 +296,9 @@ export default async function ProductPage({ params }: PageProps<{ handle: string
           <aside className="space-y-6">
             <div className="rounded-2xl border bg-surface p-6">
               <RefreshCcw className="size-6 text-primary" aria-hidden="true" />
-              <h3 className="mt-3 text-lg">Wrong size? Swap it free.</h3>
+              <h3 className="mt-3 text-lg">Wrong size? Request an exchange.</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Request an exchange from your orders page within {EXCHANGE_WINDOW_DAYS} days. We pick up the old size and
-                ship the new one at no cost.
+                Request an exchange within {EXCHANGE_WINDOW_DAYS} days of delivery. A ₹100 reverse pickup fee applies to COD exchanges. See the full policy for exclusions.
               </p>
             </div>
             <div className="rounded-2xl border p-6">

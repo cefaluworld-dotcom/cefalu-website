@@ -66,7 +66,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
     <Section
       eyebrow="The journal"
       title="Read. Learn. Thrive."
-      description="No fads — just referenced, practical nutrition science."
+      description="Style notes, fabric guides and fit advice from the Cefalu team."
     >
       <BlogToolbar categories={categories} />
 

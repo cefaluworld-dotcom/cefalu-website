@@ -97,7 +97,7 @@ export const SHIPPING_EXPRESS = 149;
 export const FREE_SHIPPING_THRESHOLD = 999;
 
 /** Exchange-first returns policy (apparel). */
-export const EXCHANGE_WINDOW_DAYS = 15;
+export const EXCHANGE_WINDOW_DAYS = 7;
 export const RETURN_WINDOW_DAYS = 7;
 
 export const PAGE_SIZE = 12;

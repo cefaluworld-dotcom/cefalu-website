@@ -14,7 +14,7 @@ export function HomeCta() {
             Take 10% off your first order
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm text-white/80 md:text-base">
-            Use code WELCOME10 at checkout · Free shipping over ₹999 · Free 15-day exchanges
+            Use code WELCOME10 at checkout · Free shipping over ₹999 · 7-day returns & exchanges
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 xs:flex-row">
             <Button asChild size="xl" variant="accent">
