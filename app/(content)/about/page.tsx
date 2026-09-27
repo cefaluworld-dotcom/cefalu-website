@@ -9,7 +9,7 @@ import { HomeCta } from "@/components/home/cta";
 export const metadata: Metadata = constructMetadata({
   title: "About Cefalu",
   description:
-    "Cefalu makes everyday readymade clothing for men and women — honest fabrics, measured size charts and free exchanges.",
+    "Cefalu makes everyday readymade clothing for men and women — honest fabrics, measured size charts and a clear 7-day return policy.",
   pathname: "/about",
 });
 
@@ -28,8 +28,8 @@ const commitments = [
   },
   {
     icon: RefreshCcw,
-    title: `${EXCHANGE_WINDOW_DAYS}-day free exchanges`,
-    description: "If the size isn't right, we collect it and send the one that is. No fee, no argument.",
+    title: `${EXCHANGE_WINDOW_DAYS}-day returns & exchanges`,
+    description: "Request within 7 days of delivery. Conditions and fees are explained in our returns policy.",
   },
   {
     icon: Tag,
@@ -50,7 +50,7 @@ export default function AboutPage() {
           <p>
             Most returns in online fashion come down to one thing: the size was wrong. So we built this store around
             getting fit right the first time — measured charts on every product, fit notes written for real bodies, and
-            exchanges that cost you nothing when we miss.
+            a clear way to request a return or exchange within 7 days.
           </p>
         </div>
       </Section>

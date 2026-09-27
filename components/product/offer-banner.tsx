@@ -6,7 +6,7 @@ export function OfferBanner() {
   const offers = [
     { icon: Ticket, text: "WELCOME10 — 10% off your first order" },
     { icon: Truck, text: `Free shipping above ${formatPrice(FREE_SHIPPING_THRESHOLD)}` },
-    { icon: RefreshCcw, text: `Free exchanges within ${EXCHANGE_WINDOW_DAYS} days of delivery` },
+    { icon: RefreshCcw, text: `Returns & exchanges within ${EXCHANGE_WINDOW_DAYS} days; conditions apply` },
   ] as const;
 
   return (

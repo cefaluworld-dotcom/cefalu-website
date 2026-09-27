@@ -15,7 +15,7 @@ const socials = [
   { label: "LinkedIn", href: siteConfig.links.linkedin, icon: Linkedin },
 ] as const;
 
-const storePolicies = ["Free shipping over ₹999", "Free 15-day exchanges", "Cash on delivery", "GST invoice with every order"];
+const storePolicies = ["Free shipping over ₹999", "7-day returns & exchanges", "Cash on delivery", "GST invoice with every order"];
 
 export function Footer() {
   return (
@@ -29,8 +29,7 @@ export function Footer() {
           <div className="space-y-5 lg:col-span-4">
             <Logo />
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              {siteConfig.tagline}. Honest fabrics, measured size charts and free
-              15-day exchanges on every order.
+              {siteConfig.tagline}. Honest fabrics, measured size charts and 7-day returns and exchanges, subject to the policy.
             </p>
             <ul className="space-y-2 text-sm">
               <li>

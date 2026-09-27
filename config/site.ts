@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = {
   legalName: "Cefalu Apparel Private Limited",
   tagline: "Everyday clothing, cut to fit",
   description:
-    "Shop readymade shirts, t-shirts, trousers, kurtas, kurtis and dresses at Cefalu. Honest fabrics, true-to-size fits, free shipping above ₹999 and easy 15-day exchanges across India.",
+    "Shop readymade shirts, t-shirts, trousers, kurtas, kurtis and dresses at Cefalu. Honest fabrics, true-to-size fits, free shipping above ₹999 and 7-day returns and exchanges across India.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.cefalu.in",
   ogImage: "/opengraph-image",
   keywords: [
@@ -44,7 +44,7 @@ export const siteConfig: SiteConfig = {
     linkedin: "https://linkedin.com/company/cefalu",
   },
   announcement: {
-    message: "Free shipping above ₹999 · Easy 15-day exchanges · 10% off your first order with WELCOME10",
+    message: "Free shipping above ₹999 · 7-day returns & exchanges · 10% off your first order with WELCOME10",
     href: "/shop",
   },
 };

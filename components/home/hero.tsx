@@ -16,7 +16,7 @@ export function Hero() {
             Clothes that fit <span className="text-primary">the first time.</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Honest fabrics, measured size charts on every product, and free 15-day exchanges — so the size
+            Honest fabrics, measured size charts on every product, and 7-day returns and exchanges — so the size
             you order is the size you keep.
           </p>
           <div className="mt-8 flex flex-col gap-3 xs:flex-row">

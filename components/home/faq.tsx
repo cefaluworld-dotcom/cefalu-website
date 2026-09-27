@@ -11,12 +11,12 @@ const faqs = [
   {
     question: "How do I find my size?",
     answer:
-      "Every product page has a size chart with garment measurements in inches, plus a note on how that style fits. Not sure? Use the size finder on our home page or the full size guide — and if it doesn't fit, exchanges are free.",
+      "Every product page has a size chart with garment measurements in inches, plus a note on how that style fits. Not sure? Use the size finder on our home page or the full size guide — and if it doesn't fit, see our 7-day exchange policy.",
   },
   {
     question: "What is your exchange and return policy?",
     answer:
-      "You can exchange any unworn item with tags attached within 15 days of delivery — we pick it up and send the new size free. Returns for a refund are accepted within 7 days of delivery.",
+      "Returns and exchanges can be requested within 7 days of delivery, except during sale periods. A ₹100 reverse pickup charge applies to returns per order and to COD exchanges. Approved refunds are credited to your Cefalu Wallet. See the full policy for conditions.",
   },
   {
     question: "How long does delivery take?",

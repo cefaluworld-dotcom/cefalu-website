@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = constructMetadata({
   title: "Returns & Exchanges",
-  description: `Free size exchanges within ${EXCHANGE_WINDOW_DAYS} days and returns within ${RETURN_WINDOW_DAYS} days of delivery at Cefalu.`,
+  description: `Request a return or exchange within ${RETURN_WINDOW_DAYS} days of delivery at Cefalu. See conditions, pickup charges and refund method.`,
   pathname: "/returns-exchanges",
 });
 
@@ -14,53 +14,45 @@ export default function ReturnsExchangesPage() {
   return (
     <>
       <h1>Returns &amp; Exchanges</h1>
-      <p>
-        <em>Last updated: 27 September 2026</em>
-      </p>
-
-      <h2>Free exchanges within {EXCHANGE_WINDOW_DAYS} days</h2>
-      <p>
-        If something doesn&apos;t fit, exchange it for another size or colour of the same product within{" "}
-        {EXCHANGE_WINDOW_DAYS} days of delivery. We collect the original and ship the replacement at no cost. If the
-        size you want is out of stock, you can choose a different product of equal value or a refund.
-      </p>
+      <p><em>Last updated: 27 September 2026</em></p>
 
       <h2>Returns within {RETURN_WINDOW_DAYS} days</h2>
       <p>
-        Prefer your money back? Return any item within {RETURN_WINDOW_DAYS} days of delivery for a refund. For cash on
-        delivery orders the ₹49 COD handling fee is not refundable; shipping charges are refunded if the item was
-        defective or not what you ordered.
+        Request a return within {RETURN_WINDOW_DAYS} days of delivery, except for items purchased during Sale or
+        Flash Sale events. Items must be unused, unwashed, in their original packaging and have all tags attached.
+        A return may be refused if an item has been used, washed or damaged after delivery.
+      </p>
+      <p>
+        A ₹100 reverse pickup charge is deducted from the refund per order, not per item. Original shipping charges
+        for both prepaid and COD orders are non-refundable.
       </p>
 
-      <h2>Condition of returned items</h2>
-      <ul>
-        <li>Unworn, unwashed and with all original tags attached.</li>
-        <li>Free of perfume, makeup and pet hair.</li>
-        <li>In the original packaging where possible.</li>
-      </ul>
+      <h2>Exchanges within {EXCHANGE_WINDOW_DAYS} days</h2>
       <p>
-        Items that fail this check are sent back to you. Innerwear and items marked &ldquo;Final sale&rdquo; on the
-        product page can&apos;t be returned or exchanged unless they arrive defective.
+        Request an exchange within {EXCHANGE_WINDOW_DAYS} days of delivery, except during Sale or Flash Sale events.
+        A ₹100 reverse pickup fee applies to COD exchange orders. If the replacement costs more, the difference must
+        be paid before shipping. If it costs less, the balance is credited to your Cefalu Wallet. If the requested
+        exchange is out of stock, the amount, including IGST, is credited to your Cefalu Wallet for a new order.
       </p>
 
-      <h2>Defective, damaged or wrong items</h2>
+      <h2>Refund method</h2>
       <p>
-        Write to us within 48 hours of delivery with your order number and photos. We&apos;ll arrange a free pickup
-        and a replacement or full refund — your choice.
+        Approved refunds are issued as Cefalu Wallet credits via WhatsApp for future purchases. This applies to both
+        prepaid and COD orders. The applicable return charge and non-refundable shipping charges are deducted.
       </p>
 
-      <h2>Refund timelines</h2>
+      <h2>Damaged, defective or wrong items</h2>
       <p>
-        Refunds are issued within 2 business days of the item passing our check. Prepaid orders are refunded to the
-        original payment method (banks usually take 5–7 business days to credit it). COD orders are refunded to your
-        UPI ID or bank account.
+        Share your order details and unboxing photos or video through our website or WhatsApp. Our support team will
+        review the issue and assist with the next steps. Damage from incorrect washing, alterations, regular wear,
+        harsh chemicals or accidental damage is not covered as a product defect.
       </p>
 
-      <h2>How to start an exchange or return</h2>
+      <h2>How to request a return or exchange</h2>
       <p>
-        Go to <Link href={ROUTES.accountOrders}>My orders</Link>, choose the item and select &ldquo;Exchange&rdquo; or
-        &ldquo;Return&rdquo;. Checked out as a guest? Email{" "}
-        <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a> with your order number.
+        Contact <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a> with your order number,
+        product details and request. You can also view your order in <Link href={ROUTES.accountOrders}>My orders</Link>.
+        Our team reviews requests before arranging a reverse pickup. Orders may be cancelled only before dispatch.
       </p>
     </>
   );

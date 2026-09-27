@@ -18,7 +18,7 @@ export async function FeaturedProducts() {
     <Section
       eyebrow="Most-picked"
       title="Wardrobe staples"
-      description="The pieces people come back for — each with a measured size chart and free exchanges."
+      description="The pieces people come back for — each with a measured size chart and 7-day returns and exchanges."
       className="border-t"
     >
       <ProductGrid products={cards} />

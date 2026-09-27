@@ -55,7 +55,7 @@ export default function OpengraphImage() {
           Clothes that fit the first time.
         </div>
         <div style={{ marginTop: 28, fontSize: 30, color: "#3A5577", maxWidth: 820 }}>
-          Shirts, kurtas, kurtis & dresses · Free 15-day exchanges
+          Shirts, kurtas, kurtis & dresses · 7-day returns & exchanges
         </div>
       </div>
     ),
