@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand: #2E7D32 primary · #66BB6A secondary · #FFB300 accent */
+    --background: 0 0% 100%;
+    --foreground: 215 51% 11%;
+
+    --surface: 214 47% 97%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 51% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 51% 11%;
+
+    --primary: 218 67% 37%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 214 64% 93%;
+    --secondary-foreground: 219 68% 25%;
+
+    --accent: 45 90% 57%;
+    --accent-foreground: 41 83% 14%;
+
+    --muted: 214 33% 96%;
+    --muted-foreground: 214 17% 40%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 33 95% 15%;
+
+    --border: 214 33% 90%;
+    --input: 214 30% 86%;
+    --ring: 218 67% 37%;
+
+    --radius: 0.5rem;
+
+    --header-height: 4.5rem;
+    --announcement-height: 2.5rem;
+  }
+
+  .dark {
+    --background: 218 45% 7%;
+    --foreground: 214 40% 94%;
+
+    --surface: 218 40% 9%;
+
+    --card: 218 38% 10%;
+    --card-foreground: 214 40% 94%;
+
+    --popover: 218 38% 10%;
+    --popover-foreground: 214 40% 94%;
+
+    --primary: 214 80% 66%;
+    --primary-foreground: 218 50% 8%;
+
+    --secondary: 218 30% 16%;
+    --secondary-foreground: 214 60% 85%;
+
+    --accent: 45 90% 57%;
+    --accent-foreground: 41 83% 12%;
+
+    --muted: 218 25% 15%;
+    --muted-foreground: 214 15% 65%;
+
+    --destructive: 0 66% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 60% 45%;
+    --success-foreground: 150 30% 8%;
+
+    --warning: 38 92% 55%;
+    --warning-foreground: 33 95% 12%;
+
+    --border: 218 25% 18%;
+    --input: 218 25% 22%;
+    --ring: 214 80% 66%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-normal text-balance;
+    letter-spacing: 0.005em;
+  }
+
+  ::selection {
+    @apply bg-brand-600/90 text-white;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary;
+  }
+
+  .link-underline {
+    @apply underline-offset-4 transition-colors hover:text-primary hover:underline;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-lg;
+  }
+}
+
+@layer utilities {
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-brand-700 via-brand-600 to-brand-500 bg-clip-text text-transparent;
+  }
+
+  .bg-hero-radial {
+    background-image:
+      radial-gradient(60rem 32rem at 85% -10%, hsl(var(--primary) / 0.1), transparent 60%),
+      radial-gradient(40rem 24rem at 0% 110%, rgb(244 196 48 / 0.10), transparent 55%);
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* Signature: Sicilian majolica tile band (cobalt on whitewash) */
+  /* Marcellus ships one weight — never let the browser fake a bold. */
+  .font-display {
+    font-synthesis: none;
+  }
+
+  .bg-majolica {
+    background-color: hsl(var(--background));
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%231F4E9E' stroke-width='1.4'%3E%3Cpath d='M24 4 L44 24 L24 44 L4 24 Z'/%3E%3Ccircle cx='24' cy='24' r='7'/%3E%3Cpath d='M24 17 V31 M17 24 H31'/%3E%3Cpath d='M0 0 Q12 12 0 24 M48 0 Q36 12 48 24 M0 48 Q12 36 0 24 M48 48 Q36 36 48 24'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 48px 48px;
+  }
+  .dark .bg-majolica {
+    opacity: 0.7;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pause-on-hover:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+}
