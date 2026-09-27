@@ -13,7 +13,7 @@ pnpm dev
 Storefront → http://localhost:3000
 
 ## Scripts
-`pnpm dev` · `pnpm build` · `pnpm start` · `pnpm typecheck` · `pnpm lint` · `pnpm test` · `pnpm test:coverage` · `pnpm e2e` · `pnpm check-env` · `pnpm --filter @cefalu/platform migrate|seed`
+`pnpm dev` · `pnpm build` · `pnpm start` · `pnpm typecheck` · `pnpm lint` · `pnpm test` · `pnpm test:coverage` · `pnpm e2e` · `pnpm check-env` · `pnpm --dir platform migrate|seed` (install platform dependencies first)
 
 ## Highlights
 - **Storefront** — enterprise PLP (filters, grid/list, infinite scroll), premium PDP (gallery zoom, sticky buy box, subscription pricing, reviews & Q&A), cart with coupons + GST, multi-step checkout, full account area.

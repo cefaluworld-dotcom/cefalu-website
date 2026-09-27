@@ -10,7 +10,7 @@ The live Shopify store remains the operational reference until the owner approve
 - **URLs:** Inventory all Shopify `/products/`, `/collections/`, `/pages/`, `/policies/` and blog paths; produce one-to-one permanent redirects and test representative old URLs. Existing `next.config.ts` has only two generic redirects.
 - **Customer operations:** Preserve or replace order tracking, pre-dispatch cancellation, returns, notifications and historical-order access. Define how pre-migration orders will be supported.
 - **Publishing:** Configure a Sanity Studio and connect home hero, announcement, banners and featured content to it. The schemas alone do not make these storefront components editable.
-- **Repository completeness:** The README describes a `platform/` Prisma package, but it is absent from the GitHub upload. Restore it or update the architecture and dependent deployment/migration steps before production.
+- **Repository completeness:** The initial GitHub upload omitted root Next.js files, API routes, shared libraries, and `platform/`; these were restored from the supplied ZIP in this PR. Verify the ZIP is the intended current revision. Deployment workflows were deliberately withheld pending infrastructure review.
 - **Release:** Use payment sandbox and controlled real test orders, verify Razorpay/Cashfree webhooks and COD, test invoices and refunds, analytics/pixels, backups and restore, mobile accessibility and performance, then rehearse rollback before DNS cutover.
 
 Public references: https://cefalu.in/ and https://cefalu.in/policies/refund-policy and https://cefalu.in/pages/cancel-order (observed 27 September 2026). Recheck the live terms just before implementation.
