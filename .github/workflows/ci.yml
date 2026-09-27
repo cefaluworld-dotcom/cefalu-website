@@ -20,3 +20,8 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm lint
       - run: pnpm test
+      - name: Production build (without live integrations)
+        run: pnpm build
+        env:
+          AUTH_SECRET: ci-build-only-secret-not-for-deployment
+          NEXT_PUBLIC_SITE_URL: https://cefalu.in
