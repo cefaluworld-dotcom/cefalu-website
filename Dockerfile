@@ -8,10 +8,8 @@ WORKDIR /app
 
 # ---------- Dependencies ----------
 FROM base AS deps
-COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml ./
-COPY medusa/package.json ./medusa/package.json
-COPY platform/package.json ./platform/package.json
-RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --ignore-scripts
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 
 # ---------- Build ----------
 FROM base AS builder
