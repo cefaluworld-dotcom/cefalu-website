@@ -31,7 +31,7 @@ const eslintConfig = [
     },
   },
   {
-    ignores: [".next/**", "node_modules/**", "medusa/**", "public/**"],
+    ignores: [".next/**", "next-env.d.ts", "node_modules/**", "medusa/**", "public/**"],
   },
 ];
 
