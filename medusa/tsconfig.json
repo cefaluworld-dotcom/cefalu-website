@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "lib": ["ES2021"],
+    "module": "Node16",
+    "moduleResolution": "node16",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "sourceMap": false,
+    "outDir": "./.medusa/server",
+    "rootDir": "./",
+    "baseUrl": ".",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "checkJs": false
+  },
+  "include": ["**/*.ts", "**/*.js", "**/*.tsx", "**/*.jsx", ".medusa/types/*"],
+  "exclude": ["node_modules", ".medusa/server", ".cache"]
+}
