@@ -40,7 +40,7 @@ export function QaSection({ handle }: { handle: string }) {
     };
     addQuestion(entry);
     setExtra((e) => [entry, ...e]);
-    toast.success("Question posted", { description: "Our nutrition team replies within 1–2 business days." });
+    toast.success("Question posted", { description: "Our team will review and reply." });
     form.reset();
   }
 
@@ -70,7 +70,7 @@ export function QaSection({ handle }: { handle: string }) {
                   <strong className="text-primary">Cefalu team:</strong> {q.answer}
                 </p>
               ) : (
-                <p className="mt-3 text-xs italic text-muted-foreground">Awaiting answer from our nutrition team.</p>
+                <p className="mt-3 text-xs italic text-muted-foreground">Awaiting an answer from our team.</p>
               )}
             </li>
           ))}

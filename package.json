@@ -2,7 +2,7 @@
   "name": "cefalu-in",
   "version": "1.0.0",
   "private": true,
-  "description": "Cefalu \u2014 premium nutraceutical ecommerce storefront",
+  "description": "Cefalu apparel ecommerce storefront",
   "engines": {
     "node": ">=20.11.0",
     "pnpm": ">=9.0.0"
@@ -12,8 +12,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
