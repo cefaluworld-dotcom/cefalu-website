@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check, MessageCircle, RefreshCcw } from "lucide-react";
 import type { PageProps, GalleryMedia } from "@/types";
-import { EXCHANGE_WINDOW_DAYS, RETURN_WINDOW_DAYS, ROUTES } from "@/constants";
+import { EXCHANGE_WINDOW_DAYS, ROUTES } from "@/constants";
 import { siteConfig } from "@/config/site";
 import { breadcrumbJsonLd, constructMetadata } from "@/lib/seo";
 import {
