@@ -8,16 +8,20 @@ WORKDIR /app
 
 # ---------- Dependencies ----------
 FROM base AS deps
-COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml ./
-COPY medusa/package.json ./medusa/package.json
-COPY platform/package.json ./platform/package.json
-RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --ignore-scripts
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 
 # ---------- Build ----------
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+ARG NEXT_PUBLIC_SITE_URL=http://localhost:3000
+ARG NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://localhost:9000
+ARG NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+ENV NEXT_PUBLIC_MEDUSA_BACKEND_URL=$NEXT_PUBLIC_MEDUSA_BACKEND_URL
+ENV NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=$NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV SKIP_ENV_VALIDATION=1
 RUN pnpm build

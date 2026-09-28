@@ -48,7 +48,7 @@ export const templates = {
   welcome: (firstName: string) =>
     shell(
       `Welcome, ${firstName} 🌿`,
-      p("Thanks for joining Cefalu. Every product has a measured size chart, and exchanges are free within 15 days.") +
+      p("Thanks for joining Cefalu. Check each product's size chart; returns and exchanges may be requested within 7 days, subject to our policy.") +
         p("Your welcome gift: <strong style=\"color:#1F4E9E;letter-spacing:3px\">WELCOME10</strong> — 10% off your first order.") +
         btn(`${STORE_URL}/shop`, "Shop bestsellers")
     ),
@@ -72,8 +72,8 @@ export const templates = {
   orderDelivered: (o: { displayId: string | number }) =>
     shell(
       "Delivered ✅",
-      p(`Order <strong>#${o.displayId}</strong> was delivered. We hope your routine feels the difference.`) +
-        p("If anything's off with the pack, reply within 48 hours and we'll fix it, no questions asked.") +
+      p(`Order <strong>#${o.displayId}</strong> was delivered. We hope you enjoy your Cefalu purchase.`) +
+        p("If there is a problem with your order, contact us with your order number and unboxing photos or video.") +
         btn(`${STORE_URL}/account/orders`, "Leave a review")
     ),
 };

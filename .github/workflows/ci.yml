@@ -25,3 +25,5 @@ jobs:
         env:
           AUTH_SECRET: ci-build-only-secret-not-for-deployment
           NEXT_PUBLIC_SITE_URL: https://cefalu.in
+      - name: Build production container
+        run: docker build --tag cefalu-web:ci .
