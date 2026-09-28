@@ -12,7 +12,7 @@ RUN apk add --no-cache libc6-compat
 RUN corepack enable && corepack prepare pnpm@9.15.4 --activate
 WORKDIR /server
 COPY --from=builder /server/.medusa/server ./
-RUN pnpm install --prod --frozen-lockfile
+RUN pnpm install --prod --no-frozen-lockfile
 ENV NODE_ENV=production
 EXPOSE 9000
 CMD ["pnpm", "start"]
