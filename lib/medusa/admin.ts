@@ -1,7 +1,7 @@
 import "server-only";
 import { UpstreamError } from "@/lib/errors";
 
-const BACKEND = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL;
+const BACKEND = process.env.MEDUSA_INTERNAL_URL ?? process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL;
 const ADMIN_KEY = process.env.MEDUSA_ADMIN_API_KEY; // secret API key (sk_…)
 
 export const isAdminApiConfigured = Boolean(BACKEND && ADMIN_KEY);
