@@ -36,17 +36,17 @@ importers:
         specifier: 4.2.5
         version: 4.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       '@mikro-orm/core':
-        specifier: 6.4.3
-        version: 6.4.3
+        specifier: 6.6.14
+        version: 6.6.14
       '@mikro-orm/knex':
-        specifier: 6.4.3
-        version: 6.4.3(@mikro-orm/core@6.4.3)(pg@8.23.0)
+        specifier: 6.6.14
+        version: 6.6.14(@mikro-orm/core@6.6.14)(pg@8.23.0)
       '@mikro-orm/migrations':
-        specifier: 6.4.3
-        version: 6.4.3(@mikro-orm/core@6.4.3)(@types/node@22.20.4)(pg@8.23.0)
+        specifier: 6.6.14
+        version: 6.6.14(@mikro-orm/core@6.6.14)(@types/node@22.20.4)(pg@8.23.0)
       '@mikro-orm/postgresql':
-        specifier: 6.4.3
-        version: 6.4.3(@mikro-orm/core@6.4.3)
+        specifier: 6.6.14
+        version: 6.6.14(@mikro-orm/core@6.6.14)
       awilix:
         specifier: ^8.0.1
         version: 8.0.1
