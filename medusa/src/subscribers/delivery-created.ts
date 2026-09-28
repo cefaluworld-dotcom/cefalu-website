@@ -19,7 +19,7 @@ export default async function deliveryCreatedHandler({
   await sendEmail({
     to: order.email,
     subject: `Order #${order.display_id} delivered ✅`,
-    html: templates.orderDelivered({ displayId: order.display_id }),
+    html: templates.orderDelivered({ displayId: order.display_id ?? "" }),
   });
 
   const phone = order.shipping_address?.phone?.replace(/\D/g, "").slice(-10);
