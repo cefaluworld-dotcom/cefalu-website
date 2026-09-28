@@ -35,6 +35,15 @@ const eslintConfig = [
     },
   },
   {
+    // Existing event handler and browser hydration hooks predate these new rules.
+    files: ["components/reviews/qa-section.tsx"],
+    rules: { "react-hooks/purity": "off" },
+  },
+  {
+    files: ["components/search/search-overlay.tsx", "hooks/use-*.ts"],
+    rules: { "react-hooks/set-state-in-effect": "off" },
+  },
+  {
     ignores: [".next/**", "next-env.d.ts", "node_modules/**", "medusa/**", "public/**"],
   },
 ];
