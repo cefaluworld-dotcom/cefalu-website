@@ -1,5 +1,7 @@
 # Deployment
 
+For the selected Vercel storefront and Railway Medusa hosting, follow [Vercel + Railway](VercelRailway.md). The AWS plan below is retained as an alternative architecture; its deployment workflows described later in this document are proposals and are not present in this repository.
+
 Two supported targets: **AWS ECS Fargate** (recommended for the container) and **Vercel** (preview + optional production). The Medusa backend and Postgres run separately (ECS service + RDS, or a managed Medusa host).
 
 ## Build artifact
