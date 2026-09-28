@@ -29,6 +29,7 @@ Storefront → http://localhost:3000
 | [FolderStructure](docs/FolderStructure.md) | Where everything lives |
 | [Environment](docs/Environment.md) | Every env var + cross-field rules |
 | [Deployment](docs/Deployment.md) | AWS topology, CI/CD, migrations, rollback |
+| [Vercel + Railway](docs/VercelRailway.md) | Staging setup, required variables, verification, cutover |
 | [API](docs/API.md) | REST reference (also `/api-docs`, `/api/openapi`) |
 | [DeveloperGuide](docs/DeveloperGuide.md) | Local dev, adding routes, data model |
 | [Contributing](docs/Contributing.md) | Workflow & standards |

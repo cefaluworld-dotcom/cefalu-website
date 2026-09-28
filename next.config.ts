@@ -1,6 +1,17 @@
 import type { NextConfig } from "next";
 import { withSentryConfig } from "@sentry/nextjs/config";
 
+// Product thumbnails may be served from the Medusa host in staging. Keep the
+// image allowlist tied to the configured backend rather than every Railway host.
+const medusaImageHost = (() => {
+  try {
+    const url = new URL(process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL ?? "");
+    return url.protocol === "https:" ? url.hostname : null;
+  } catch {
+    return null;
+  }
+})();
+
 const securityHeaders = [
   { key: "X-DNS-Prefetch-Control", value: "on" },
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
@@ -27,6 +38,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "**.amazonaws.com" },
       { protocol: "https", hostname: "**.cloudfront.net" },
       { protocol: "http", hostname: "localhost" },
+      ...(medusaImageHost ? [{ protocol: "https" as const, hostname: medusaImageHost }] : []),
     ],
   },
   experimental: {
