@@ -5,7 +5,7 @@ import { audit } from "@/lib/logger";
 
 const bodySchema = z.object({
   confirm: z.literal("DELETE", {
-    errorMap: () => ({ message: 'Type "DELETE" to confirm account deletion' }),
+    error: 'Type "DELETE" to confirm account deletion',
   }),
 });
 

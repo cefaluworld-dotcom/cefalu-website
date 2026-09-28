@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 
 const schema = z.object({
   author: z.string().min(2, "Enter your name"),
-  rating: z.coerce.number().int().min(1, "Pick a star rating").max(5),
+  rating: z.number().int().min(1, "Pick a star rating").max(5),
   title: z.string().min(3, "Add a short headline"),
   body: z.string().min(20, "Tell us a bit more (min. 20 characters)").max(1500),
   photo: z.string().url("Enter a valid image URL").optional().or(z.literal("")),

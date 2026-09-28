@@ -18,8 +18,8 @@ export interface ApiContext<TBody, TQuery> {
 }
 
 interface ApiOptions<TBody, TQuery> {
-  bodySchema?: z.ZodType<TBody, z.ZodTypeDef, unknown>;
-  querySchema?: z.ZodType<TQuery, z.ZodTypeDef, unknown>;
+  bodySchema?: z.ZodType<TBody>;
+  querySchema?: z.ZodType<TQuery>;
   /** requests per minute per IP for this route (default 30) */
   limit?: number;
   /** minimum role; when set, unauthenticated requests get 401 */
