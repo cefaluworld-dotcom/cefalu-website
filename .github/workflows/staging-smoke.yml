@@ -21,6 +21,8 @@ jobs:
       - name: Validate and start isolated stack
         run: |
           cp .env.staging.example .env.staging
+          # The smoke test verifies startup; catalog access needs a real key in shared staging.
+          sed -i 's/^NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=$/NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_smoke_test/' .env.staging
           docker compose --env-file .env.staging -f docker-compose.staging.yml config -q
           docker compose --env-file .env.staging -f docker-compose.staging.yml up --build -d
           for i in $(seq 1 60); do
