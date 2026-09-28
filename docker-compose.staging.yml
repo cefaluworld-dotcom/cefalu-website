@@ -1,0 +1,90 @@
+# Isolated staging stack. Run with: docker compose --env-file .env.staging -f docker-compose.staging.yml up --build -d
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${STAGING_DB_PASSWORD:?Set STAGING_DB_PASSWORD in .env.staging}
+    volumes:
+      - staging_pgdata:/var/lib/postgresql/data
+      - ./ops/staging/01-databases.sql:/docker-entrypoint-initdb.d/01-databases.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  medusa-migrate:
+    build:
+      context: ./medusa
+      dockerfile: Dockerfile.staging
+    env_file: .env.staging
+    environment:
+      DATABASE_URL: postgres://postgres:${STAGING_DB_PASSWORD}@postgres:5432/medusa
+      REDIS_URL: redis://redis:6379
+    command: ["pnpm", "exec", "medusa", "db:migrate"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: "no"
+
+  medusa:
+    build:
+      context: ./medusa
+      dockerfile: Dockerfile.staging
+    env_file: .env.staging
+    environment:
+      DATABASE_URL: postgres://postgres:${STAGING_DB_PASSWORD}@postgres:5432/medusa
+      REDIS_URL: redis://redis:6379
+      MEDUSA_BACKEND_URL: http://localhost:9000
+      STORE_CORS: http://localhost:3000
+      ADMIN_CORS: http://localhost:9000
+      AUTH_CORS: http://localhost:3000,http://localhost:9000
+    ports:
+      - "127.0.0.1:9000:9000"
+    depends_on:
+      medusa-migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:9000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+        NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${NEXT_PUBLIC_MEDUSA_BACKEND_URL:-http://localhost:9000}
+        NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY:-}
+    env_file: .env.staging
+    environment:
+      MEDUSA_INTERNAL_URL: http://medusa:9000
+      PLATFORM_DATABASE_URL: postgres://postgres:${STAGING_DB_PASSWORD}@postgres:5432/cefalu_platform
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      medusa:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+volumes:
+  staging_pgdata:

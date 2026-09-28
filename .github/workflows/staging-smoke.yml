@@ -1,0 +1,36 @@
+name: Staging stack smoke
+
+on:
+  pull_request:
+    paths:
+      - 'docker-compose.staging.yml'
+      - 'medusa/**'
+      - 'Dockerfile'
+      - 'lib/medusa/**'
+      - 'ops/staging/**'
+      - '.env.staging.example'
+      - '.github/workflows/staging-smoke.yml'
+  workflow_dispatch:
+
+jobs:
+  stack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate and start isolated stack
+        run: |
+          cp .env.staging.example .env.staging
+          docker compose --env-file .env.staging -f docker-compose.staging.yml config -q
+          docker compose --env-file .env.staging -f docker-compose.staging.yml up --build -d
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:3000/api/health && curl -fsS http://127.0.0.1:9000/health; then exit 0; fi
+            sleep 10
+          done
+          exit 1
+      - name: Show service logs on failure
+        if: failure()
+        run: docker compose --env-file .env.staging -f docker-compose.staging.yml logs --tail=150
+      - name: Stop stack
+        if: always()
+        run: docker compose --env-file .env.staging -f docker-compose.staging.yml down
